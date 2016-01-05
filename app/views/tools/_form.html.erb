@@ -1,0 +1,11 @@
+<%= form_for(@tool) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name  %>
+  <br>
+
+  <%= f.label "used for" %>
+  <%= f.text_field :use %>
+  <br>
+
+  <%= f.submit %>
+<% end  %>

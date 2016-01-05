@@ -1,0 +1,20 @@
+<% flash.each do |type, msg| %>
+  <%= content_tag :div, msg, class: "flash-#{type}" %>
+<% end %>
+
+<%= form_for(:session, url: login_path) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Login" %>
+<% end %>
+<p>Dont have an account?</p> <%= link_to "Create Account", new_user_path %>
