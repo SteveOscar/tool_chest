@@ -16,8 +16,10 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user = User.find_by(id: session[:user_id])
     if @tool.save
-      redirect_to tool_path(@tool)
+
+      redirect_to user_path(@tool.user)
       flash[:notice] = "Tool created successfully!"
     else
       redirect_to new_tool_path
@@ -36,7 +38,7 @@ class ToolsController < ApplicationController
   def destroy
     @tool = Tool.find(params[:id])
     @tool.destroy
-    redirect_to tools_path
+    redirect_to @tool.user
   end
 
   private
@@ -46,7 +48,7 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.require(:tool).permit(:name, :use)
+    params.require(:tool).permit(:name, :use, :user_id)
   end
 
 end

@@ -11,25 +11,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  
   <nav>
     <div class="nav-wrapper">
-      <div class="container">
-        <a href="#" class="brand-logo left">Tool Chest</a3>
-        <% if session[:user_id] %>
-          <a href="<%= logout_path %>" class="waves-effect waves-light btn right">Log Out</a>
-        <% else %>
-          <a href="<%= login_path %>" class="waves-effect waves-light btn right">Log In</a>
-        <% end %>
-      </div>
+      <h3 class="center teal-text">Tool Chest</h3>
+      <% if session[:user_id] %>
+        <a href="<%= logout_path %>" class="waves-effect waves-light btn right">Log Out</a>
+      <% end %>
     </div>
   </nav>
-  <% flash.each do |type, msg| %>
-    <%= content_tag :div, msg, class: "flash-#{type}" %>
-  <% end %>
-<div class="container">
-  <strong class="right">Newest tool: <%= most_recent_tool.name %></strong>
-</div>
 
 <%= yield %>
     <!--Import jQuery before materialize.js-->

@@ -1,10 +1,5 @@
-<h1>All Tools</h1>
-
-<% @tools.each do |tool|  %>
-  <p> <%= link_to(tool.name, tool_path(tool.id)) %> ( <%= tool.use %>) </p>
-  <%= link_to("edit", edit_tool_path(tool)) %>
-  <%= link_to("delete", tool_path(tool), method: :delete, class: "example") %>
-<% end  %>
-
-
-<%= link_to "Add New Tool", new_tool_path %>
+<br><br>
+<div class="container">
+  <h3>Log In To View Your Tools</h3><br>
+  <h5>Register if you don't have an account</h5>
+</div>

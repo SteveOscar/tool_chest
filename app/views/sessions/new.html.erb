@@ -1,20 +1,26 @@
 <% flash.each do |type, msg| %>
   <%= content_tag :div, msg, class: "flash-#{type}" %>
 <% end %>
+<div class="container">
+  <%= form_for(:session, url: login_path) do |f| %>
 
-<%= form_for(:session, url: login_path) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+    <%= f.submit "Login", class: "waves-effect waves-light btn" %>
+  <% end %>
 
-  <%= f.submit "Login" %>
-<% end %>
-<p>Dont have an account?</p> <%= link_to "Create Account", new_user_path %>
+  <div class="right">
+    <p>Dont have an account?<a href="<%= new_user_path %>" class="waves-effect waves-light btn btn-sm right">New User</a></p>
+
+  </div>
+
+</div>

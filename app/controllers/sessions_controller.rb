@@ -1,4 +1,5 @@
 class SessionsController < ActionController::Base
+  layout "sessions_layout"
   def new
   end
 
@@ -16,7 +17,7 @@ class SessionsController < ActionController::Base
 
   def destroy
     session.delete(:user_id)
-    redirect_to tools_path
+    redirect_to root_path
     flash[:notice] = "Successfully Logged Out"
   end
 

@@ -1,5 +1,8 @@
-<h1>Create New Tool</h1>
+<br>
+<div class="container">
+  <h4 class="center">Create New Tool</h4>
+  <%= content_tag :div, flash[:error], class: "flash" %>
+</div>
 
 <%= render partial: "form" %>
 <br>
-<%= content_tag :div, flash[:error], class: "flash" %>
