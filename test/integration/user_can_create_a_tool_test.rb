@@ -8,7 +8,7 @@ class UserCanCreateAToolTest < ActionDispatch::IntegrationTest
     fill_in "Name", with: "#{user.name}"
     fill_in "Password", with: "password"
     click_on "Login"
-    click_on "Add tool"
+    click_link "Add Tool"
     fill_in "Name", with: "Grinder"
     fill_in "Use", with: "smoothing stuff"
     click_on "Submit"

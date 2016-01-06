@@ -7,8 +7,8 @@ class UserLogsOutTest < ActionDispatch::IntegrationTest
     visit login_path
     fill_in "Name", with: "#{user.name}"
     fill_in "Password", with: "password"
-    click_on "Login"
-    click_on "Logout"
+    click_button "Login"
+    click_link "Log Out"
     assert page.has_content?("Successfully Logged Out")
   end
 end

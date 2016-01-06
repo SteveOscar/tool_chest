@@ -15,8 +15,9 @@ class ToolsController < ApplicationController
   end
 
   def create
-    @tool = Tool.new(tool_params)
-    @tool.user = User.find_by(id: session[:user_id])
+    @tool = current_user.tools.new(tool_params)
+    # @tool = Tool.new(tool_params)
+    # @tool.user = User.find_by(id: session[:user_id])
     if @tool.save
 
       redirect_to user_path(@tool.user)
