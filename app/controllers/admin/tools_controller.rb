@@ -18,11 +18,8 @@ class Admin::ToolsController < Admin::BaseController
   def create
     user = User.find(params[:tool][:user_id])
     @tool = user.tools.new(tool_params)
-    # @tool = current_user.tools.new(tool_params)
-    # @tool = Tool.new(tool_params)
-    # @tool.user = User.find_by(id: session[:user_id])
     if @tool.save
-      redirect_to user_path(@tool.user)
+      redirect_to user_path(user)
       flash[:notice] = "Tool created successfully!"
     else
       redirect_to new_tool_path
