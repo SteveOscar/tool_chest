@@ -8,14 +8,21 @@
   </div>
   <ol>
     <br>
+    <% if current_user.admin? %>
+      <% Tool.all.each do |tool|  %>
+        <li><p> <%= link_to(tool.name, tool_path(tool.id)) %>   (Use: <%= tool.use %>)  Owner: <%= tool.user.name %>
+          <br>
+          <%= link_to("edit", edit_admin_tool_path(tool)) %>
+          <%= link_to("delete", admin_tool_path(tool), method: :delete) %>
+        </p></li>
+      <% end  %>
+    <% else %>
     <% current_user.tools.each do |tool|  %>
       <li><p> <%= link_to(tool.name, tool_path(tool.id)) %>   (Use: <%= tool.use %>)
-        <%= link_to("edit", edit_tool_path(tool)) %>
-        <%= link_to("delete", tool_path(tool), method: :delete, class: "example") %>
       </p></li>
     <% end  %>
+    <% end %>
   </ol>
-
+  <a href="<%= new_admin_tool_path %>" class="waves-effect waves-light btn right">New Tool</a>
   <br>
-  <a href="<%= new_tool_path %>" class="waves-effect waves-light btn right">Add Tool</a>
 </div>

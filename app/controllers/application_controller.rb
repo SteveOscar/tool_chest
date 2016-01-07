@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     session[:most_recent_tool_id] = Tool.all.last.id
   end
 
+  def current_admin?
+    current_user && current_user.admin?
+  end
+
 end

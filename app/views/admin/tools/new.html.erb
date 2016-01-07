@@ -1,0 +1,12 @@
+<br>
+<div class="container">
+  <h4 class="center">Create New Tool</h4>
+  <%= content_tag :div, flash[:error], class: "flash" %><br>
+  <h6>Current Users: %> </h6>
+  <% @users.each do |user|  %>
+    <li>Name:  <%= user.name %> ID:  <%= user.id %> </li>
+  <% end  %>
+</div>
+
+<%= render partial: "form" %>
+<br>
